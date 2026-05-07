@@ -1766,3 +1766,177 @@ textarea.booking-input {
 		border-radius: 18px;
 	}
 }
+
+/* ===============================
+   TESTIMONIALS
+================================ */
+.testimonials-section {
+	background: var(--openway-light);
+}
+
+.testimonial-card {
+	padding: 36px 30px;
+	background: #fff;
+	border-radius: 22px;
+	border: 1px solid var(--openway-border);
+	box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+	height: 100%;
+	position: relative;
+	transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 20px 44px rgba(15, 23, 42, 0.10);
+}
+
+.testimonial-quote {
+	font-size: 48px;
+	line-height: 1;
+	color: var(--openway-gold);
+	font-family: "Playfair Display", serif;
+	margin-bottom: 16px;
+	display: block;
+}
+
+.testimonial-text {
+	font-size: 16px;
+	line-height: 1.9;
+	color: #4b525c;
+	margin-bottom: 28px;
+	font-style: italic;
+}
+
+.testimonial-author {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+}
+
+.testimonial-avatar {
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	object-fit: cover;
+	border: 3px solid var(--openway-border);
+}
+
+.testimonial-name {
+	font-size: 16px;
+	font-weight: 700;
+	color: #171717;
+	margin-bottom: 2px;
+}
+
+.testimonial-detail {
+	font-size: 13px;
+	color: #7a818d;
+}
+
+.testimonial-stars {
+	color: var(--openway-gold);
+	font-size: 13px;
+	margin-bottom: 18px;
+}
+
+/* ===============================
+   TEAM SECTION
+================================ */
+.team-card {
+	background: #fff;
+	border-radius: 22px;
+	overflow: hidden;
+	border: 1px solid var(--openway-border);
+	box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+	transition: all 0.3s ease;
+}
+
+.team-card:hover {
+	transform: translateY(-8px);
+	box-shadow: 0 20px 44px rgba(15, 23, 42, 0.10);
+}
+
+.team-photo-wrap {
+	height: 260px;
+	overflow: hidden;
+}
+
+.team-photo-wrap img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: top;
+	transition: transform 0.4s ease;
+}
+
+.team-card:hover .team-photo-wrap img {
+	transform: scale(1.05);
+}
+
+.team-info {
+	padding: 22px 24px;
+}
+
+.team-name {
+	font-size: 20px;
+	font-weight: 700;
+	color: #171717;
+	margin-bottom: 4px;
+}
+
+.team-role {
+	font-size: 14px;
+	color: var(--openway-gold-dark);
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.8px;
+	margin-bottom: 12px;
+}
+
+.team-bio {
+	font-size: 14px;
+	line-height: 1.8;
+	color: #5a6170;
+	margin-bottom: 0;
+}
+
+/* ===============================
+   MALAYSIA HIGHLIGHT STRIP
+================================ */
+.malaysia-strip {
+	background: linear-gradient(135deg, rgba(22,26,34,0.97), rgba(29,34,48,0.95)),
+		url('../img/countries/malaysia-twin-towers.jpg') center center / cover no-repeat;
+	padding: 70px 0;
+}
+
+.malaysia-strip-stat h3 {
+	font-family: "Playfair Display", serif;
+	font-size: 46px;
+	font-weight: 700;
+	color: var(--openway-gold);
+	margin-bottom: 6px;
+}
+
+.malaysia-strip-stat p {
+	font-size: 15px;
+	color: rgba(255,255,255,0.82);
+	margin: 0;
+}
+
+@media (max-width: 767px) {
+	.team-photo-wrap {
+		height: 220px;
+	}
+
+	.testimonial-card {
+		padding: 28px 22px;
+	}
+
+	.testimonial-text {
+		font-size: 15px;
+	}
+
+	.malaysia-strip-stat h3 {
+		font-size: 36px;
+	}
+}
