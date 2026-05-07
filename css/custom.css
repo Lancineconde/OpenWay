@@ -1944,45 +1944,55 @@ textarea.booking-input {
 /* ===============================
    STUDENT LIFE CARDS
 ================================ */
+.so-cream-section {
+	background: var(--openway-light);
+}
+
 .student-life-card {
-	padding: 28px 22px;
+	padding: 24px 20px;
 	background: #fff;
-	border-radius: 18px;
+	border-radius: 24px;
 	border: 1px solid var(--openway-border);
-	box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
-	transition: all 0.3s ease;
+	box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+	transition: border-color 0.3s ease, box-shadow 0.3s ease;
 	text-align: center;
 }
 
 .student-life-card:hover {
-	transform: translateY(-6px);
-	box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+	border-color: rgba(201,168,106,0.3);
+	box-shadow: 0 16px 36px rgba(15, 23, 42, 0.10);
 }
 
 .student-life-icon {
-	width: 56px;
-	height: 56px;
+	width: 44px;
+	height: 44px;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	border-radius: 50%;
-	background: rgba(201,168,106,0.12);
+	border-radius: 14px;
+	background: var(--openway-dark);
 	color: var(--openway-gold);
-	font-size: 22px;
+	font-size: 18px;
 	margin: 0 auto 16px;
+	transition: background 0.3s ease, color 0.3s ease;
+}
+
+.student-life-card:hover .student-life-icon {
+	background: var(--openway-gold);
+	color: var(--openway-dark);
 }
 
 .student-life-card h5 {
-	font-size: 17px;
-	font-weight: 700;
-	color: #171717;
-	margin-bottom: 10px;
+	font-size: 16px;
+	font-weight: 600;
+	color: var(--openway-dark);
+	margin-bottom: 8px;
 }
 
 .student-life-card p {
-	font-size: 14px;
+	font-size: 13px;
 	line-height: 1.8;
-	color: #5a6170;
+	color: #6b7280;
 	margin: 0;
 }
 
@@ -2052,27 +2062,25 @@ textarea.booking-input {
 ================================ */
 .comparison-table-wrap {
 	overflow-x: auto;
-	border-radius: 20px;
-	border: 1px solid var(--openway-border);
-	box-shadow: 0 12px 35px rgba(15, 23, 42, 0.06);
 }
 
 .comparison-table {
 	width: 100%;
 	border-collapse: collapse;
-	min-width: 580px;
+	min-width: 560px;
 }
 
 .comparison-table thead tr {
-	background: var(--openway-dark);
-	color: #fff;
+	border-bottom: 2px solid var(--openway-border);
+	background: transparent;
 }
 
 .comparison-table th {
-	padding: 20px 22px;
-	font-size: 15px;
-	font-weight: 700;
+	padding: 14px 16px;
+	font-size: 14px;
+	font-weight: 500;
 	text-align: center;
+	color: #6b7280;
 	border: none;
 }
 
@@ -2081,40 +2089,45 @@ textarea.booking-input {
 }
 
 .comparison-table th.highlight-col {
-	background: var(--openway-gold);
-	color: #111;
+	background: rgba(201,168,106,0.05);
+	color: var(--openway-gold);
+	font-weight: 700;
+	border-radius: 12px 12px 0 0;
+}
+
+.comparison-table tbody tr:nth-child(odd) {
+	background: #fff;
+}
+
+.comparison-table tbody tr:nth-child(even) {
+	background: var(--openway-light);
 }
 
 .comparison-table tbody tr {
-	border-bottom: 1px solid #f0ede8;
-	transition: background 0.2s ease;
+	border-bottom: 1px solid var(--openway-border);
 }
 
 .comparison-table tbody tr:last-child {
 	border-bottom: none;
 }
 
-.comparison-table tbody tr:hover {
-	background: #faf8f4;
-}
-
 .comparison-table td {
-	padding: 16px 22px;
-	font-size: 15px;
-	color: #4b525c;
+	padding: 14px 16px;
+	font-size: 14px;
+	color: #6b7280;
 	text-align: center;
 }
 
 .comparison-table td:first-child {
 	text-align: left;
-	font-weight: 600;
-	color: #2f3640;
+	font-weight: 500;
+	color: var(--openway-dark);
 }
 
 .comparison-table td.highlight-col {
-	background: rgba(201,168,106,0.07);
+	background: rgba(201,168,106,0.05);
 	font-weight: 600;
-	color: #3a2d1a;
+	color: var(--openway-dark);
 }
 
 .badge-good {
