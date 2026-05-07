@@ -2000,7 +2000,7 @@ textarea.booking-input {
    VISA STEPS SECTION
 ================================ */
 .visa-steps-section {
-	background: linear-gradient(135deg, #161a22, #1d2230);
+	background: linear-gradient(135deg, #161a22, #1d2230) !important;
 }
 
 .visa-steps-track {
