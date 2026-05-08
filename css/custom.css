@@ -149,6 +149,39 @@
 	--openway-text: #5a5f69;
 	--openway-light: #f8f6f2;
 	--openway-border: #ebe5da;
+
+	/* Override Porto theme — gold as primary, navy as dark */
+	--primary:         #c9a86a;
+	--primary-100:     #b89352;
+	--primary-200:     #a87e3a;
+	--primary-300:     #906c2e;
+	--primary--100:    #d4b478;
+	--primary--200:    #dfbf87;
+	--primary--300:    #eacf9f;
+	--primary-rgba-0:  rgba(201,168,106,0);
+	--primary-rgba-10: rgba(201,168,106,0.1);
+	--primary-rgba-20: rgba(201,168,106,0.2);
+	--primary-rgba-30: rgba(201,168,106,0.3);
+	--primary-rgba-40: rgba(201,168,106,0.4);
+	--primary-rgba-50: rgba(201,168,106,0.5);
+	--primary-rgba-60: rgba(201,168,106,0.6);
+	--primary-rgba-70: rgba(201,168,106,0.7);
+	--primary-rgba-80: rgba(201,168,106,0.8);
+	--primary-rgba-90: rgba(201,168,106,0.9);
+
+	--dark:            #161a22;
+	--dark-100:        #1d2230;
+	--dark--100:       #2a3044;
+
+	--secondary:       #ebe5da;
+	--secondary--100:  #f8f6f2;
+	--secondary--200:  #ffffff;
+	--secondary-rgba-0:  rgba(235,229,218,0);
+	--secondary-rgba-10: rgba(235,229,218,0.1);
+
+	--color-primary:   #c9a86a;
+	--color-secondary: #f8f6f2;
+	--color-dark:      #161a22;
 }
 
 body {
@@ -160,6 +193,28 @@ body {
 h1, h2, h3, h4, h5, h6 {
 	color: #111;
 }
+
+/* Porto color overrides — force gold/navy everywhere */
+.text-color-primary,
+.text-color-hover-primary:hover,
+a.text-color-hover-primary:hover { color: var(--openway-gold) !important; }
+
+.bg-primary,
+.btn-primary { background-color: var(--openway-gold) !important; border-color: var(--openway-gold) !important; color: var(--openway-dark) !important; }
+.btn-primary:hover { background-color: var(--openway-gold-dark) !important; border-color: var(--openway-gold-dark) !important; }
+
+.btn-outline-primary { border-color: var(--openway-gold) !important; color: var(--openway-gold) !important; }
+.btn-outline-primary:hover { background-color: var(--openway-gold) !important; color: var(--openway-dark) !important; }
+
+.border-color-primary { border-color: var(--openway-gold) !important; }
+.bg-color-primary { background-color: var(--openway-gold) !important; }
+
+.text-color-secondary { color: var(--openway-text) !important; }
+.bg-color-secondary,
+.page-header-modern.bg-color-secondary { background-color: var(--openway-light) !important; }
+
+a { color: var(--openway-dark); }
+a:hover { color: var(--openway-gold); }
 
 .section-title {
 	font-family: "Playfair Display", serif;
