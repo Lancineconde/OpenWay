@@ -1,3 +1,34 @@
+/* Navbar — scroll behaviour + mobile menu */
+(function () {
+	var navbar = document.getElementById('ow-navbar');
+	var toggle = document.getElementById('ow-menu-toggle');
+	var mobileMenu = document.getElementById('ow-mobile-menu');
+	if (!navbar) return;
+
+	var transparent = !navbar.classList.contains('ow-navbar-solid');
+
+	function onScroll() {
+		if (!transparent) return;
+		navbar.classList.toggle('scrolled', window.scrollY > 40);
+	}
+	window.addEventListener('scroll', onScroll, { passive: true });
+	onScroll();
+
+	/* Auto-highlight active link */
+	var page = window.location.pathname.split('/').pop() || 'index.html';
+	document.querySelectorAll('.ow-nav-link, .ow-mobile-link').forEach(function (a) {
+		if (a.getAttribute('href') === page) a.classList.add('active');
+	});
+
+	if (toggle && mobileMenu) {
+		toggle.addEventListener('click', function () {
+			var open = mobileMenu.classList.toggle('open');
+			toggle.innerHTML = open ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+			document.body.style.overflow = open ? 'hidden' : '';
+		});
+	}
+}());
+
 /* Universities page — live search & filter */
 (function () {
 	var searchInput  = document.getElementById('uniSearch');
@@ -57,6 +88,48 @@
 	[searchInput, courseSelect, citySelect, typeSelect].forEach(function (el) {
 		if (el) el.addEventListener('input', filterCards);
 	});
+}());
+
+/* Blog page — search & category filter */
+(function () {
+	var blogSearch = document.getElementById('blogSearch');
+	if (!blogSearch) return;
+
+	var featuredSection = document.getElementById('blogFeaturedSection');
+	var catBtns = document.querySelectorAll('.blog-cat-btn');
+	var cards = document.querySelectorAll('.blog-card-wrap');
+	var noResults = document.getElementById('blogNoResults');
+	var activeCat = 'All';
+
+	function filterBlog() {
+		var search = blogSearch.value.toLowerCase().trim();
+		var isFiltering = search || activeCat !== 'All';
+
+		if (featuredSection) featuredSection.style.display = isFiltering ? 'none' : '';
+
+		var visible = 0;
+		cards.forEach(function (wrap) {
+			var isFeatured = wrap.dataset.featured === 'true';
+			var matchSearch = !search || wrap.dataset.title.includes(search) || wrap.dataset.excerpt.includes(search);
+			var matchCat = activeCat === 'All' || wrap.dataset.category === activeCat;
+			var show = matchSearch && matchCat && (!isFeatured || isFiltering);
+			wrap.style.display = show ? '' : 'none';
+			if (show) visible++;
+		});
+
+		if (noResults) noResults.style.display = visible === 0 ? '' : 'none';
+	}
+
+	catBtns.forEach(function (btn) {
+		btn.addEventListener('click', function () {
+			catBtns.forEach(function (b) { b.classList.remove('active'); });
+			btn.classList.add('active');
+			activeCat = btn.dataset.cat;
+			filterBlog();
+		});
+	});
+
+	blogSearch.addEventListener('input', filterBlog);
 }());
 
 /* Journey Timeline — scroll animations */
