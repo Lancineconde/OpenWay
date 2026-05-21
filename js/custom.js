@@ -132,6 +132,90 @@
 	blogSearch.addEventListener('input', filterBlog);
 }());
 
+/* Scroll Reveal — auto-animate elements as they enter the viewport */
+(function () {
+	if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+	// Elements that animate individually (fade up)
+	var singles = [
+		'.section-eyebrow', '.section-title', '.section-subtitle',
+		'.section-lead', '.lead-text', '.cta-title', '.cta-text',
+		'.about-checks', '.about-mini-points', '.hero-buttons',
+		'.about-image-wrap', '.about-home-image',
+		'.comparison-table-wrap', '.visa-steps-track',
+		'.uni-search-section'
+	];
+
+	// Elements that stagger within their row
+	var staggered = [
+		'.feature-card', '.stat-box', '.hero-trust-item',
+		'.blog-card', '.blog-featured-card',
+		'.uni-card', '.university-option-card',
+		'.study-field-card', '.student-life-card',
+		'.visa-support-card', '.process-card',
+		'.visa-step-item', '.mv-box', '.service-feature'
+	];
+
+	// Hero/above-fold containers to skip
+	var skipSelectors = [
+		'.homepage-hero', '.about-hero', '.visa-hero',
+		'.blog-hero-section', '.study-options-hero',
+		'.universities-hero-section', '.ow-navbar',
+		'.ow-mobile-menu'
+	];
+
+	function isInHero(el) {
+		return skipSelectors.some(function (s) { return el.closest(s); });
+	}
+
+	function prepare(el, delayMs, type) {
+		if (isInHero(el)) return;
+		if (el.classList.contains('sr-item')) return;
+		el.classList.add('sr-item');
+		if (type === 'left')  el.classList.add('sr-left');
+		if (type === 'scale') el.classList.add('sr-scale');
+		if (delayMs) el.style.transitionDelay = delayMs + 'ms';
+	}
+
+	// Prepare singles
+	singles.forEach(function (sel) {
+		document.querySelectorAll(sel).forEach(function (el) {
+			prepare(el, 0);
+		});
+	});
+
+	// Prepare staggered — delay based on position within closest .row
+	staggered.forEach(function (sel) {
+		document.querySelectorAll(sel).forEach(function (el) {
+			if (isInHero(el)) return;
+			var row = el.closest('.row') || el.parentElement;
+			var siblings = row ? Array.from(row.querySelectorAll(sel)) : [el];
+			var idx = siblings.indexOf(el);
+			prepare(el, idx * 90);
+		});
+	});
+
+	// Left-slide for images in two-column layouts
+	document.querySelectorAll('.about-image-wrap img, .about-home-image img').forEach(function (el) {
+		if (isInHero(el)) return;
+		prepare(el.closest('.col-lg-5, .col-lg-6') || el, 0, 'left');
+	});
+
+	// Observe everything
+	var observer = new IntersectionObserver(function (entries) {
+		entries.forEach(function (entry) {
+			if (entry.isIntersecting) {
+				entry.target.classList.add('sr-visible');
+				observer.unobserve(entry.target);
+			}
+		});
+	}, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+
+	document.querySelectorAll('.sr-item').forEach(function (el) {
+		observer.observe(el);
+	});
+}());
+
 /* Journey Timeline — scroll animations */
 (function () {
 	var header = document.querySelector('.journey-header');
