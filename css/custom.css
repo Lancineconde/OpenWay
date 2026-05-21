@@ -27,7 +27,7 @@
 	justify-content: space-between;
 	gap: 32px;
 }
-.ow-navbar-logo img { height: 38px; width: auto; }
+.ow-navbar-logo img { height: 54px; width: auto; }
 .ow-nav-links {
 	display: flex;
 	align-items: center;
