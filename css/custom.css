@@ -1,4 +1,4 @@
-/* ===============================
+﻿/* ===============================
    NAVBAR
 ================================ */
 .ow-navbar {
@@ -21,13 +21,13 @@
 	max-width: 1280px;
 	margin: 0 auto;
 	padding: 0 24px;
-	height: 72px;
+	height: 80px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	gap: 32px;
 }
-.ow-navbar-logo img { height: 54px; width: auto; }
+.ow-navbar-logo img { height: 62px; width: auto; }
 .ow-nav-links {
 	display: flex;
 	align-items: center;
@@ -90,7 +90,7 @@
 	inset: 0;
 	z-index: 8999;
 	background: var(--openway-dark);
-	padding-top: 72px;
+	padding-top: 80px;
 	overflow-y: auto;
 	pointer-events: none;
 	opacity: 0;
@@ -129,14 +129,14 @@
 
 /* Offset main content on solid-navbar pages */
 .ow-navbar.ow-navbar-solid ~ * ~ [role="main"],
-.ow-navbar.ow-navbar-solid ~ [role="main"] { padding-top: 72px; }
+.ow-navbar.ow-navbar-solid ~ [role="main"] { padding-top: 80px; }
 
 @media (max-width: 991px) {
 	.ow-nav-links { display: none; }
 	.ow-nav-apply { display: none; }
 	.ow-menu-toggle { display: flex; align-items: center; }
 	.ow-navbar.ow-navbar-solid ~ * ~ [role="main"],
-	.ow-navbar.ow-navbar-solid ~ [role="main"] { padding-top: 72px; }
+	.ow-navbar.ow-navbar-solid ~ [role="main"] { padding-top: 80px; }
 }
 
 /* ===============================
@@ -3027,7 +3027,7 @@ textarea.booking-input {
 	font-family: 'Poppins', sans-serif; font-size: 12px; color: rgba(255,255,255,0.6);
 }
 .blog-filter-bar {
-	position: sticky; top: 72px; z-index: 200;
+	position: sticky; top: 80px; z-index: 200;
 	background: rgba(248,246,242,0.96);
 	backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
 	border-bottom: 1px solid var(--openway-border);
